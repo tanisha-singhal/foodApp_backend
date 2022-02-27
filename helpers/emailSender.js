@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const config  = require("../secret");
+const {APP_PASSWORD}=process.env;
 
 // async..await is not allowed in global scope, must use a wrapper
 module.exports=async function main(token,userEmail) {
@@ -14,7 +14,7 @@ module.exports=async function main(token,userEmail) {
     secure: true, // true for 465, false for other ports
     auth: {
       user: "tanusinghal1000@gmail.com", // generated ethereal user
-      pass: config.APP_PASSWORD, // generated ethereal password
+      pass: APP_PASSWORD, // generated ethereal password
     },
   });
 
